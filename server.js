@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const mysql = require('mysql');
+// const mysql = require('mysql');
 const app = express();
 const { Client } = require('pg');
 
@@ -70,16 +70,17 @@ const GetMoviesPage = (req, res) => {
 const GetMoviePage = (req, res) => {
     let movieId = req.params.id;
 
-    let query = "SELECT * FROM `movies` WHERE id = '" + movieId + "' ";
+    // let query = "SELECT * FROM `movies` WHERE id = '" + movieId + "' ";
 
-    db.query(query, (err, result) => {
-        if (err) {
-            return res.status(500).send(err);
-        }
-        res.render('movie.ejs', {
-            movie: result[0]
-        });
-    });
+    // db.query(query, (err, result) => {
+    //     if (err) {
+    //         return res.status(500).send(err);
+    //     }
+    //     res.render('movie.ejs', {
+    //         movie: result[0]
+    //     });
+    // });
+    res.render('movie.ejs');
 }
 
 app.post('/user', (req, res) => {
