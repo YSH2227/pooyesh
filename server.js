@@ -65,7 +65,7 @@ const GetMoviesPage = (req, res) => {
             console.log(result);
         //   }
         res.render('movies-page.ejs', {
-            movies: result
+            movies: result.rows
         });
     });
 }
