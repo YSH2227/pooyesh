@@ -61,9 +61,9 @@ const GetMoviesPage = (req, res) => {
             console.log("db res" + err);
             res.redirect('/');
         }
-        for (let row of result.rows) {
-            console.log(JSON.stringify(row));
-          }
+        // for (let row of result.rows) {
+            console.log(result);
+        //   }
         res.render('movies-page.ejs', {
             movies: result
         });
