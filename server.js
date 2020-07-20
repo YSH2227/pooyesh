@@ -79,7 +79,7 @@ const GetMoviePage = (req, res) => {
         if (err) {
             return res.status(500).send(err);
         }
-        console.log("movie" +JSON.stringify(result.rows))
+        console.log("movie" +JSON.stringify(result.rows[0]))
         res.render('movie.ejs', {
             movie: result.rows[0]
         });
