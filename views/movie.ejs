@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>مشاهده فیلم ها</title>
+    <link rel="stylesheet" type="text/css" href="../styles/main.css">
+    <link rel="stylesheet" type="text/css" href="../styles/movie.css">
+</head>
+<body style="background-image: url(<%= movie.backImage %>);" onload="">
+    <main  class="main">
+        <header>
+            <ul class="navbar">
+                <img src="../images/logo.png" width="100px" height="auto" class="logo">
+                <li><a href="../#download-container">دانلود</a></li>
+                <li>
+                    <div class="dropdown-container">
+                        <a href="../#features-container">امکانات</a>
+                        <div class="dropdown-content">
+                            <a style="color: #555;" href="../movies-page">انواع فیلم ها</a>
+                            <a style="color: #555;" href="../#second-feature">انواع سریال ها</a>
+                            <a style="color: #555;" href="../#third-feature">پخش زنده</a>    
+                        </div>
+                    </div>
+                </li>
+                <li><a href="../#social-media-container">تماس با ما</a></li>
+                <li><a href="../#footer-container">درباره ما</a></li>
+                <li><a id="register-nav-link" href="../user">ثبت نام / ورود</a></li>
+            </ul>
+        </header>
+        <div class="movie-head-container">
+            <div id="movie-details-container">
+                <p id="movie-title"><%= movie.name %> </p>
+                <p id="movie-desc"><%= movie.description %> </p>
+                <div id="rating-container">
+                    <img src="../images/stars-image-back.png" width="360px" height="90px"/>
+                    <p id="movie-rating"><%= movie.rating %></p>
+                    <div id="movie-rating-stars-container">
+                        <% for (i = 0; i < movie.rating; i++) { %>
+                            <img id="movie-rating-star" src="../images/star.png" width="25px" height="25px" />
+                        <% } %> 
+                    </div>
+                    
+                </div>
+                <div id="add-to-fav-btn-container">
+                    <a id="add-to-fav-btn" href="/<%= movie.id %> " >
+                        <p id="add-to-fav-btn-text">افزودن به مورد علاقه ها</p>  
+                        <img id="add-to-fav-btn-icon" src="../images/plus.png" width="45px" height="45px">
+                    </a>
+                </div>
+            </div>
+            <img id="movie-image"  src="<%= movie.image %>" width="20%" height="25%">
+        </div>
+        
+    </main>
+</body>
+<script>
+
+</script>
+</html>

@@ -1,0 +1,114 @@
+body {
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+}
+
+main {
+    background-color: rgba(0, 0, 0, 0.7);
+    height: 100%;
+}
+
+.navbar li a {
+    color: white;
+}
+
+.movie-head-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    align-content: flex-end;
+    padding: 5%;
+    
+}
+
+#movie-details-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-right: 2em;
+    text-align: right;
+}
+
+#movie-image {
+    border: 1px solid white ;
+    border-radius: 25px;
+}
+
+#movie-title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+    padding-top: 1em;
+    flex-grow: 4
+    
+}
+
+#movie-desc {
+    width: 800px;
+    font-size: 1.5rem;
+    color: white;
+    padding: 3em 0em 0em 0em;
+    text-align: right;
+}
+
+#rating-container {
+    position: relative;
+    left: 10px;
+    height: 100px;
+}
+
+#movie-rating {
+    position: relative;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 3rem;
+    bottom: 85px;
+    left: 115px;
+}
+
+#movie-rating-stars-container {
+    position: absolute;
+    bottom: 38px;
+    left: 585px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: auto;
+}
+
+#movie-rating-star {
+    padding: 2.2%;
+}
+
+#add-to-fav-btn-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    height: 150px;
+}
+
+#add-to-fav-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    height: 60px;
+    width: 250px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: white;
+    /* padding-top: 15px; */
+    background: linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
+    border-radius: 35px;
+    text-align: center;
+}
+
+#add-to-fav-btn-icon {
+    margin-left: 10px;
+}

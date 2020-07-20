@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>مشاهده فیلم ها</title>
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <link rel="stylesheet" type="text/css" href="styles/movies-page.css">
+</head>
+<body onload="">
+    <main class="main">
+        <header>
+            <ul class="navbar">
+                <img src="images/logo.png" width="100px" height="auto" class="logo">
+                <li><a href="/#download-container">دانلود</a></li>
+                <li>
+                    <div class="dropdown-container">
+                        <a href="/#features-container">امکانات</a>
+                        <div class="dropdown-content">
+                            <a style="color: #555;" href="movies-page">انواع فیلم ها</a>
+                            <a style="color: #555;" href="/#second-feature">انواع سریال ها</a>
+                            <a style="color: #555;" href="/#third-feature">پخش زنده</a>    
+                        </div>
+                    </div>
+                </li>
+                <li><a href="/#social-media-container">تماس با ما</a></li>
+                <li><a href="/#footer-container">درباره ما</a></li>
+                <li><a id="register-nav-link" href="user">ثبت نام / ورود</a></li>
+            </ul>
+        </header>
+        <div class="movies-container">
+                <% if (movies.length > 0) {%>
+                    <% movies.forEach((movie, index) => { %>
+                        <div class="movie-item">
+                            <a id="movie-item-link" href="/movie/<%= movie.id %>">
+                                <img id="movie-item-image" class="movie-item-details" src="<%= movie.image %>" width="180px" height="250px">
+                            </a>
+                            <p id="movie-item-title" class="movie-item-details"><%= movie.name %></p>
+                            <p class="movie-item-details">کارگردان: <%= movie.director %></p>
+                            <div id="rating-container">
+                                <img class="movie-item-details" src="../images/stars-image-back.png" />
+                                <p id="movie-item-rating"><%= movie.rating %></p>
+                                <div id="movie-item-rating-stars-container">
+                                    <% for (i = 0; i < movie.rating; i++) { %>
+                                        <img id="movie-item-rating-star" src="../images/star.png" width="18px" height="18px" />
+                                    <% } %> 
+                                </div>
+                            </div>
+                            <a id="movie-item-link" href="/movie/<%= movie.id %>" style="text-decoration: none;">
+                                <div id="movie-item-link-btn" class="movie-item-details">
+                                    <p id="movie-item-link-text">مشاهده</p>
+                                </div>
+                            </a>
+                        </div>
+                    <% }) %>
+                <% } %>
+        </div>
+    </main>
+</body>
+<script>
+
+</script>
+</html>

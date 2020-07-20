@@ -1,0 +1,328 @@
+@font-face {
+    font-family: Gandom;
+    src: url('http://fonts.codearena.ir/rastikerdar/gandom/gandom.eot');
+    src: url('http://fonts.codearena.ir/rastikerdar/gandom/gandom.eot?#iefix') format('embedded-opentype'),
+         url('http://fonts.codearena.ir/rastikerdar/gandom/gandom.woff') format('woff'),
+         url('http://fonts.codearena.ir/rastikerdar/gandom/gandom.ttf') format('truetype');
+    font-weight: normal;
+  }
+
+* {
+    box-sizing: content-box;
+    padding: 0;
+    margin: 0;
+    font-family: Gandom;
+}
+
+html {
+    scroll-behavior: smooth;
+  }
+  
+.welcome {
+    padding: 0   !important;
+    margin-right: 3em   !important;
+    cursor: pointer;
+    white-space: normal;
+    font-size: 2em;
+    text-shadow: 3px 3px #0f2027;
+    color: white !important;
+}
+
+.navbar {
+    direction: rtl;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: transparent;
+    padding: 1em 0.2em 0.2em 0.2em;
+}
+
+.logo {
+    margin: 0em 2em 0em 4em;
+    transition: transform 3s ease;
+    cursor: pointer;
+}
+
+.logo:hover {
+    transform: rotateY(360deg);
+}
+
+.navbar li {
+    text-align: center;
+    list-style-type: none;
+    font-size: 1.1rem;
+    white-space: nowrap;
+}
+
+.navbar li:nth-of-type(4) {
+    border: 0;
+}
+
+.navbar li a {
+    margin: 0;
+    padding: 2.2em 3em;
+    color: #555;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.navbar li a:hover {
+    color: #0D57DF;
+    cursor: pointer;
+}
+
+.dropdown-container {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    position: absolute;
+    display: flex;
+    visibility: hidden;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    white-space: nowrap;
+    z-index: 1;
+    box-shadow: 0px 5px 7px 2px rgba(0,0,0,0.2);
+    background-color: white;
+    top: 215%;
+    left: 0px;
+    right: 0;
+    transition: 0.2s;
+    opacity: 0;
+}
+
+
+.dropdown-container:hover .dropdown-content {
+    visibility: visible;
+    opacity: 1;
+}
+
+.dropdown-container .dropdown-content a {
+    display: block;
+    padding: 1em 2em 1em 2em;
+    margin-top: 0.5em;
+}
+
+.dropdown-container .dropdown-content a:nth-of-type(1) {
+    margin-top: 0;
+}
+
+.background-pic {
+    background-image: url('../images/back.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#download-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr;
+    justify-items: center;
+    align-items: center;
+    margin-top: 3em; 
+    height: 600px;
+}
+
+.mobile-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../images/mobileFrame.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 270px;
+    height: 460px;
+}
+
+
+.slide-image {
+    display: none;
+    margin: 0;
+    width: 255px;
+    height: 417px;
+}
+
+#show {
+    display: block;
+    animation: fade 4s ease-out;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.none {
+    display: none;
+}
+
+.download-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    direction: rtl;
+    text-align: center;
+    color: white;
+    margin-left: 4em;
+}
+
+.download-text p {
+    margin-top: 1em;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.download-text a {
+    border: 2px solid white;
+    border-radius: 2em;
+    background-color: #0D57DF; 
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    padding: 0.5em 2em;
+    margin-top: 2em;
+    text-decoration: none;
+}
+
+.download-text a:hover {
+    background-color: #200787; 
+    transition: 0.2s all ease;
+}
+
+#download-badge-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #EE2525, #f9d423);
+    color: white;
+    padding: 2em;
+    height: 15em;
+}
+
+#download-badges {
+    margin-top: 2em;
+}
+
+#download-badges img{
+    cursor: pointer;
+}
+
+#features-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 0 4em 2em 2em;
+    background: linear-gradient(to right, #4776e6, #8e54e9);
+}
+
+.features {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-start;
+    margin-top: 5em;
+    margin-left: auto;
+}
+
+.feature-text {
+    text-align: right;
+    color: white;
+    direction: rtl;
+    margin-top: 5em;
+    margin-right: 2em;
+    width: 60%;
+}
+
+.features img {
+    border-radius: 1.5em;
+    width: 300px;
+    height: 400px;
+    margin-left: 5em;
+    transition: 1s all ease;
+}
+
+.features img:hover {
+    transform: scale(1.1, 1.1);
+    cursor: pointer;
+}
+
+#social-media-container {
+    padding: 3em;
+    text-align: center;
+    background: linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
+}
+
+#social-media-container h2 {
+    color: white;
+    margin-bottom: 0.5em;
+}
+
+#social-media-container img{
+    cursor: pointer;
+    width: 60px;
+    margin: 1em 1.5em 0 1.5em;
+
+}
+
+#social-media-container img:hover {
+    transform: scale(1.1);
+}
+
+#footer-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+    padding: 3em 5em;
+    text-align: center;
+    color: white;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+}
+
+.right-footer {
+    direction: rtl;
+    width: 60%;
+    padding-left: 3em;
+}
+
+
+.right-footer h1 {
+    margin-bottom: 1em;
+}
+
+.right-footer p {
+    line-height: 2em;
+}
+
+.left-footer {
+    align-self: center;
+    width: 30%;
+    margin-right: 1em;
+}
+
+.left-footer img{
+    margin-top: 2em;
+    transition: 1s all ease;
+    cursor: pointer;
+}
+
+.left-footer img:hover{
+    margin-top: 2em;
+    transform: scale(1.1, 1.1);
+}
