@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="../styles/main.css">
     <link rel="stylesheet" type="text/css" href="../styles/movie.css">
 </head>
-<body style="background-image: url(<%= movie.backImage %>);" onload="">
+<body style="background-image: url(<% if (movies.backImage.length > 0) {%><%= movie.backImage %><% } %>);" onload="">
     <main  class="main">
         <header>
             <ul class="navbar">
