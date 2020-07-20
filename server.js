@@ -53,7 +53,7 @@ let wrongInfo = false
 
 
 const GetMoviesPage = (req, res) => {
-    let query = "SELECT * FROM `movies` ORDER BY id ASC"; // query database to get all the users
+    let query = "SELECT * FROM movies ORDER BY id ASC"; // query database to get all the users
 
         // execute query
     db.query(query, (err, result) => {
@@ -70,7 +70,7 @@ const GetMoviesPage = (req, res) => {
 const GetMoviePage = (req, res) => {
     let movieId = req.params.id;
 
-    let query = "SELECT * FROM `movies` WHERE id = '" + movieId + "' ";
+    let query = "SELECT * FROM movies WHERE id = '" + movieId + "' ";
 
     db.query(query, (err, result) => {
         if (err) {
