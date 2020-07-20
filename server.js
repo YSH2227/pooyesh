@@ -81,7 +81,7 @@ const GetMoviePage = (req, res) => {
         }
         console.log("movie" + JSON.stringify(result))
         res.render('movie.ejs', {
-            movie: result[0]
+            movie: result.rows[0]
         });
     });
 }
