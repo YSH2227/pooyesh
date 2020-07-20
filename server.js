@@ -58,6 +58,7 @@ const GetMoviesPage = (req, res) => {
         // execute query
     db.query(query, (err, result) => {
         if (err) {
+            console.log("db res" + err);
             res.redirect('/');
         }
         res.render('movies-page.ejs', {

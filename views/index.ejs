@@ -116,7 +116,6 @@
 <script src="scripts/main.js"></script>
 <script>
     function loading() {
-        console.log("Fuck" + <%= isSignedIn %>);
         if (<%= isSignedIn %> == true) {
             const registerLink = document.getElementById("register-nav-link");
             registerLink.innerHTML = " خوش آمدید <%= registerLinkContent %> عزیز"
