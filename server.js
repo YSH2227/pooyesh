@@ -70,17 +70,16 @@ const GetMoviesPage = (req, res) => {
 const GetMoviePage = (req, res) => {
     let movieId = req.params.id;
 
-    // let query = "SELECT * FROM `movies` WHERE id = '" + movieId + "' ";
+    let query = "SELECT * FROM `movies` WHERE id = '" + movieId + "' ";
 
-    // db.query(query, (err, result) => {
-    //     if (err) {
-    //         return res.status(500).send(err);
-    //     }
-    //     res.render('movie.ejs', {
-    //         movie: result[0]
-    //     });
-    // });
-    res.render('movie.ejs');
+    db.query(query, (err, result) => {
+        if (err) {
+            return res.status(500).send(err);
+        }
+        res.render('movie.ejs', {
+            movie: result[0]
+        });
+    });
 }
 
 app.post('/user', (req, res) => {
