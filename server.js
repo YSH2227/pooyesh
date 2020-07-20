@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
 const app = express();
+const { Client } = require('pg');
 
 
 app.set('view engine', 'ejs');
@@ -10,21 +11,39 @@ app.use('/images', express.static('images'));
 app.use('/styles', express.static('styles'));
 app.use('/scripts', express.static('scripts'));
 
-const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "data"
-  });
+// const db = mysql.createConnection({
+//     host: "localhost",
+//     user: "root",
+//     password: "",
+//     database: "data"
+//   });
   
-db.connect((err) => {
+// db.connect((err) => {
+//     if (err) 
+//     {
+//         throw err;
+//     }
+//     console.log("Connected to db");
+// });
+
+
+const client = new Client({
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+      rejectUnauthorized: false
+    }
+  });
+
+client.connect((err) => {
     if (err) 
     {
         throw err;
     }
     console.log("Connected to db");
 });
-global.db = db;
+  
+
+global.db = client;
 
 let isSignedIn = false;
 let registerLinkContent = "ثبت نام / ورود";
@@ -103,23 +122,23 @@ app.post('/user', (req, res) => {
     
 });
 
-app.post('/login', (req, res) => {
-    let currentUsername = req.body.username;
-    let currentPassword = req.body.password;
-    User.findOne({username: currentUsername, password: currentPassword}, function(err, user){
-        if(user ===null){
-            wrongInfo = true;
-            res.redirect('user')
-        } else if (user.username === currentUsername && user.password === currentPassword) {
-            registerLinkContent = user.username;
-            isSignedIn = true;
-            nameCapitalized = registerLinkContent.charAt(0).toUpperCase() + registerLinkContent.slice(1)
-            res.redirect('/');
-        } else {
-            console.log(err, user.username, user.password)
-        }
-    })
-})
+// app.post('/login', (req, res) => {
+//     let currentUsername = req.body.username;
+//     let currentPassword = req.body.password;
+//     User.findOne({username: currentUsername, password: currentPassword}, function(err, user){
+//         if(user ===null){
+//             wrongInfo = true;
+//             res.redirect('user')
+//         } else if (user.username === currentUsername && user.password === currentPassword) {
+//             registerLinkContent = user.username;
+//             isSignedIn = true;
+//             nameCapitalized = registerLinkContent.charAt(0).toUpperCase() + registerLinkContent.slice(1)
+//             res.redirect('/');
+//         } else {
+//             console.log(err, user.username, user.password)
+//         }
+//     })
+// })
 
 app.get('/', (req, res) => {
     res.render('index', {isSignedIn: isSignedIn, registerLinkContent: nameCapitalized})
